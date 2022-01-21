@@ -14,10 +14,11 @@ const db = require("./models");
 
 
 //routes
-
+const update = require("./routes/update");
 const divers = require("./routes/divers");
 const login = require("./routes/log-in");
 
+app.use("/update", update);
 app.use("/divers", divers);
 app.use("/login", login);
 
