@@ -2,7 +2,11 @@ module.exports = (sequelize, DataTypes) => {
   const Divers = sequelize.define("Divers", {
     agent: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+    },
+    instructor: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     flight: {
       type: DataTypes.STRING,
@@ -10,15 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     pass: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     surname: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     nationality: {
       type: DataTypes.STRING,
