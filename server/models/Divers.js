@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
+    middle: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -45,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
     owed: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
     paid: {
@@ -97,7 +101,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
     fins: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
 
@@ -112,7 +116,7 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     medicalDoctors: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: true,
     },
 

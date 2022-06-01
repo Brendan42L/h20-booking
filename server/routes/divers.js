@@ -7,8 +7,6 @@ const paginate = require("jw-paginate");
 router.get("/", async (req, res) => {
   const divers = await Divers.findAll();
 
-  // res.json(divers);
-
   // get page from query params or default to first page
   const page = parseInt(req.query.page) || 1;
 
@@ -17,7 +15,10 @@ router.get("/", async (req, res) => {
   const pager = paginate(divers.length, page, pageSize);
 
   // get page of items from items array
-  const pageOfItems = divers.slice(0).reverse().slice(pager.startIndex, pager.endIndex + 1);
+  const pageOfItems = divers
+    .slice(0)
+    .reverse()
+    .slice(pager.startIndex, pager.endIndex + 1);
 
   // return pager object and current page of items
 
@@ -55,8 +56,14 @@ router.put("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const values = req.body.diver;
-  const createDiver = await Divers.create(values);
-  res.json(createDiver);
+
+  const createDiver = await Divers.create(values)
+    .then(() => {
+      res.json(createDiver);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 module.exports = router;
